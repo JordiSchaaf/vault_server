@@ -10,6 +10,17 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    firstName: {
+        type: String
+    },
+    lastName: {
+        type: String
+    },
+    permissionLevel: {
+        type: Number,
+        required: true,
+        default: 2
     }
 })
 

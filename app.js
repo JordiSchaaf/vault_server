@@ -17,6 +17,7 @@ mongoose.connection.on('error', err => {
 })
 
 // Bring in routes
+const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
 
 // Middleware
@@ -26,7 +27,8 @@ app.use(function(req,res,next) {
   next()
 })
 app.use(bodyParser.json())
-app.use("/", userRoutes)
+app.use("/", authRoutes)
+app.use("/user", userRoutes)
 
 const port = 8080
 app.listen(port, () => console.log(`Listening on port ${port}`))
