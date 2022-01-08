@@ -9,7 +9,7 @@ router.get("/", userController.getUsers)
 
 router.get("/me", checkAuth, userController.getCurrentUser)
 
-router.post("/", createUser, userController.createUser)
+router.post("/signup", createUser, userController.createUser)
 
 router.delete("/delete/:userId", checkAuth, userController.deleteUser)
 

@@ -5,8 +5,7 @@ const bcrypt = require('bcrypt')
 const { validationResult } = require('express-validator')
 
 exports.getUsers = (req, res) => {
-    const users = User
-        .find()
+    User.find()
         .then((users) => {
             res.status(200).json(users)
         })
@@ -14,8 +13,7 @@ exports.getUsers = (req, res) => {
 }
 
 exports.getCurrentUser = (req, res) => {
-    const user = User
-        .findOne({ _id: req.userData.userId })
+    User.findOne({ _id: req.userData.userId })
         .then((user) => {
             res.status(200).json({
                 email: user.email,
@@ -72,7 +70,7 @@ exports.createUser = (req, res) => {
 }
 
 exports.deleteUser = (req, res) => {
-    User.remove({ _id: req.params.userId })
+    User.deleteOne({ _id: req.params.userId })
         .exec()
         .then(result => {
             res.status(200).json({

@@ -21,7 +21,12 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: 2
+    },
+    orgId: {
+        type: mongoose.Types.ObjectId,
+        required: true
     }
+
 })
 
 module.exports = mongoose.model("User", userSchema)
